@@ -68,14 +68,12 @@ public class OsobaController {
                     .addObject("osoba", osoba.get());
 //                        seznamOsob.get(0));}
         }
-        System.out.println("error");
         return ResponseEntity.notFound().build();
     }
 
     @PostMapping("/{id:[0-9]+}")
     public String ulozit(@ModelAttribute("osoba") @Valid Osoba osoba, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            System.out.println("err");
             return "detail";
         }
         repository.save(osoba);
