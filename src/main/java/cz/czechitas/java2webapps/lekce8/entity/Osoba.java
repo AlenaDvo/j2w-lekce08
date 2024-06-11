@@ -4,10 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.PastOrPresent;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -35,6 +32,7 @@ public class Osoba {
 
     @PastOrPresent
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @NotNull(message = "Prosím zadejte datum narození!")
     private LocalDate datumNarozeni;
 
     @Length(max = 200)
